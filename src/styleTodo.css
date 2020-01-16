@@ -1,0 +1,42 @@
+.add {
+    height: 30px;
+    width:100px ;
+    background-color: aquamarine;
+    border: none;
+    margin-left: 5px;
+    border-radius: 2px;
+    border: 1px solid;
+    font-weight: bold;
+
+}
+
+input {
+    height: 20px;
+    border:1px solid ;
+    width: 300px;
+    margin-left: 350px;
+    margin-top: 30px;
+
+
+}
+
+li{
+    margin-left: 350px;
+    margin-top: 5px;
+}
+
+.remove-item{
+    
+    height: 30px;
+    width:100px ;
+    background-color: aquamarine;
+    border: none;
+    margin-left: 5px;
+    border-radius: 2px;
+    border: 1px solid;
+    font-weight: bold;
+}
+
+.check-box{
+    margin-left: 0px;
+}
