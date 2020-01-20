@@ -1,4 +1,4 @@
-.add {
+.add  {
     height: 30px;
     width:100px ;
     background-color: aquamarine;
@@ -37,6 +37,42 @@ li{
     font-weight: bold;
 }
 
-.check-box{
+.check-box {
     margin-left: 0px;
+    width:100px;
+    height: auto;
+    border:none
+}
+
+.todo-items{
+    height: 200px;
+    
+}
+
+
+.update-todo{
+    margin-left: 350px;
+    margin-top: 5px;
+}
+
+span {
+    margin-left: 500px;
+    font-weight: bold;
+
+}
+
+button{
+    height: 30px;
+    width:100px ;
+    background-color: aquamarine;
+    border: none;
+    margin-left: 5px;
+    border-radius: 2px;
+    border: 1px solid;
+    font-weight: bold;
+}
+
+.btn-container{
+    margin-left: 400px;
+    margin-top: 5px;
 }

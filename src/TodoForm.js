@@ -1,45 +1,37 @@
 import React from 'react'
 
 import './styleTodo.css'
-class TodoForm extends React.Component{
-    // constructor(){
-    //     super()
-    //     this.state = {
-            
-
-    //     }
-    // }
-
-    handleChange = (e) =>{
-      this.setState({
-          text:e.target.value
-      })
+class TodoForm extends React.Component {
+    handleChange = (e) => {
+        this.setState({
+            text: e.target.value
+        })
 
     }
 
-    handleSubmit = (e) =>{
+    handleSubmit = (e) => {
         e.preventDefault()
         this.props.onSubmit({
-            text:this.state.text,
-            completed:false
+            text: this.state.text,
+            completed: false
         })
-       console.log(this.state.text);
+        console.log(this.state.text);
     }
-  
 
-   
-    render(){
-        return(
+
+
+    render() {
+        return (
             <div className="todo-input">
                 <form>
-                    <input type="text" placeholder="enter todo" onChange={this.handleChange} name="text" value={this.props.text}/>
-                    <button  className="add"onClick={(e) => this.handleSubmit(e)}>Add</button>
-                    </form>
-                
-                 
-                  
-               
-               </div>
+                    <input type="text" placeholder="enter todo" onChange={this.handleChange} name="text" value={this.props.text} />
+                    <button className="add" onClick={(e) => this.handleSubmit(e)}>Add</button>
+                </form>
+
+
+
+
+            </div>
         )
     }
 }

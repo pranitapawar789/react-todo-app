@@ -1,44 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-
-
-class UpdateTodo extends Component{
-    
-    allTodo  = () =>{
-        this.setState({
-            [this.props.completed]:false
-            
-        })
-    
-        console.log([this.props.completed]);
-    }
-
-    activeTodo = () =>{
-       this.setState({ 
-           [this.props.completed] : false
-       })
-       console.log([this.props.completed]);
-    }
-
-    completedTodo = () =>{
-        this.setState({
-            [this.props.completed]:true
-        })
-        console.log([this.props.completed]);
-    }
-
+class UpdateTodo extends React.Component{
     render(){
         return(
-            <div>
-               <button onClick={this.allTodo}>All</button>
-               < button onClick={this.activeTodo}> Active</button>
-                <button onClick={this.activeTodo}>completed</button> 
+            <div className="btn-container">
+            <button handleOption={this.props.handleOption} value={'all'}>All</button>
+            <button handleOption={this.props.handleOption} value={'active'}>Active</button>
+            <button handleOption={this.props.handleOption} value={'completed'}>Completed</button>
             </div>
-
-    
-
         )
     }
 }
-    
-    export default UpdateTodo
+
+export default UpdateTodo
