@@ -2,7 +2,7 @@ import React from 'react'
 import './styleTodo.css'
 import TodoForm from './TodoForm'
 import UpdateTodo from './UpdateTodo'
-import FilterButtons from './FilterButton'
+import FilterButtons from './FilterButtons'
 
 class List extends React.Component {
     constructor() {

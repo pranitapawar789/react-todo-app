@@ -1,11 +1,11 @@
 import React from 'react';
 class FilterButtons extends React.Component {
+
     constructor(props) {
         super(props)
     }
     render() {
-
-        return (
+         return (
             <div className="btn-container">
                 <Option handleOption={this.props.handleOption} value={'All'}>All</Option>
                 <Option handleOption={this.props.handleOption} value={'Completed'}>Completed</Option>
