@@ -2,6 +2,7 @@ import React from 'react'
 import './styleTodo.css'
 import TodoForm from './TodoForm'
 import UpdateTodo from './UpdateTodo'
+import FilterButtons from './FilterButton'
 
 class List extends React.Component {
     constructor() {
@@ -9,9 +10,9 @@ class List extends React.Component {
         this.state = {
             todos: [],
             text: "",
-            completed: '' ,
-            option:'all'
-            
+            completed: '',
+            option: 'all'
+
 
 
         }
@@ -40,71 +41,70 @@ class List extends React.Component {
 
     }
 
-    // updateTodoToShow = (todos) => {
-    //     this.setState({
-    //         todoToShow: todos
-    //     })
-    //     console.log("rhru")
-    // }
-    
-    handleOption = (newOption) =>{
+
+    handleOption = (newOption) => {
         this.setState({
-            option:newOption
+            option: newOption
         })
-        console.log("hello")
+       
     }
-    check = () =>{
-        this.setState({
-            completed:true
+    onTodoChange = (id) => {
+        const newTodos = this.state.todos.map((item, i) => {
+            if (item.id == id) {
+                item.complete = !item.complete;
+            }
+            return item;
         })
-        console.log(this.state.completed);
+        this.setState({
+            todos: newTodos
+        })
     }
     render() {
-        if(this.state.option==='all')
-        {
-        
-        // let todos = [];
-        // if (this.state.todoStatus === 'all') {
-        //     todos = this.state.todos;
-        //     console.log(this.state.todo);
+        if (this.state.option === 'all') {
 
-        // }
-        // else if (this.state.todoStatus === 'active') {
-        //     todos = this.state.todos.filter(todo => todo.completed).length
+            // let todos = [];
+            // if (this.state.todoStatus === 'all') {
+            //     todos = this.state.todos;
+            //     console.log(this.state.todo);
 
+            // }
+            // else if (this.state.todoStatus === 'active') {
+            //     todos = this.state.todos.filter(todo => todo.completed).length
 
 
-        // }
-        // else if (this.state.todoStatus === "complete") {
-        //     todos = this.state.todos.filter(todo => !todo.completed).length
 
-        // }
-        return (
-            <div>
-                <TodoForm onSubmit={this.addToList} />
-                <ul className="todo-items">
-                    {
-                        this.state.todos.map((item, i) => {
-                           
-                            return <li key={i} >{item}
-                                <button className="remove-item" onClick={() => this.removeFromList(item)}>X
+            // }
+            // else if (this.state.todoStatus === "complete") {
+            //     todos = this.state.todos.filter(todo => !todo.completed).length
+
+            // }
+            return (
+                <div>
+                    <TodoForm onSubmit={this.addToList} />
+                    <ul className="todo-items">
+                        {
+                            this.state.todos.map((item, i) => {
+
+                                return <li key={i} >{item}
+                                    <button className="remove-item" onClick={() => this.removeFromList(item)}>X
                                 </button>
-                                <input type="checkbox" name="status" className="check-box" onClick={this.check}></input>
+                                    <input type="checkbox" name="status" className="check-box" onClick={this.check}></input>
 
-                            </li>
-                        
-                        })
-                    }
-                </ul>
-            
+                                </li>
 
-                <span>No of  Todos :</span> {this.state.todos.filter(todo => !todo.completed).length}
-                <UpdateTodo/>
-            </div>
+                            })
+                        }
+                    </ul>
 
-        )
+
+                    <span>No of  Todos :</span> {this.state.todos.filter(todo => !todo.completed).length}
+                    <FilterButtons handleOption={this.handleOption} />
+                    <UpdateTodo handleOption={this.handleOption} todos={this.state.todos} onTodoChange={this.onTodoChange} option={this.state.option}/>
+                </div>
+
+            )
+        }
     }
-}
 }
 
 export default List
